@@ -4,6 +4,11 @@ var path = require('path');
 var vow = require('vow');
 var vowFs = require('vow-fs');
 
+/**
+ * Список технологий, используемый для создания файлов.
+ *
+ * @type {array}
+ */
 var techs = [
     'bemhtml',
     'css',
