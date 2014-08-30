@@ -24,7 +24,7 @@ if (program.args.length === 0) {
     program.help();
 }
 
-var bem = require('../index.js');
+var bem = require('../index');
 
 program.args.forEach(function (arg) {
     bem.make(arg, program.bemhtml, program.css, program.js).catch(bem.log);
