@@ -1,0 +1,31 @@
+{
+  "name": "bem-help",
+  "version": "0.1.0",
+  "description": "Инструмент для работы с файловой системой по БЕМ методологии.",
+  "bin": {
+    "mkbem": "./bin/make.js",
+    "mvbem": "./bin/rename.js"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sullenor/bem-help.git"
+  },
+  "keywords": [
+    "bem"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sullenor/bem-help/issues"
+  },
+  "homepage": "https://github.com/sullenor/bem-help",
+  "dependencies": {
+    "commander": "^2.3.0",
+    "vow": "^0.4.5",
+    "vow-fs": "^0.3.2"
+  }
+}
