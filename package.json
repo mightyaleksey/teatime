@@ -17,8 +17,11 @@
   "keywords": [
     "bem"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "Alexey Litvinov",
+    "email": "iamhoneyboy@gmail.com"
+  },
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sullenor/bem-help/issues"
   },
