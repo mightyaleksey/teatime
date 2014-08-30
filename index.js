@@ -23,6 +23,8 @@ function appendTech(filePath) {
             return;
         }
 
+        console.log(filePath);
+
         return vowFs.write(filePath, '');
     };
 }
@@ -94,6 +96,7 @@ exports.make = function (str) {
 
     var ln = arguments.length;
     var basePath = list.pop();
+    str = path.basename(str);
     for (var a = 1; a < ln; ++a) {
         if (!arguments[a]) {
             continue;
