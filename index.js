@@ -66,13 +66,23 @@ function folderList(pathName) {
     }
 }
 
+/**
+ * Логирует ошибки.
+ *
+ * @param  {*} err
+ */
 exports.log = function (err) {
     console.log(err.stack || err);
 };
 
 /**
- * @param  {string} str
- * @param  {object} params
+ * Создает БЕМ сущность.
+ *
+ * @param  {string}  str
+ * @param  {boolean} bemhtml
+ * @param  {boolean} css
+ * @param  {boolean} js
+ * @return {promise}
  */
 exports.make = function (str) {
     var list = folderList(str);
