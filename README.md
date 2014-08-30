@@ -8,7 +8,7 @@
 
 Создание блока:
 ```
-mkbem <block-name>
+mkbem -bcj <block-name>
 ```
 
 Создание модификатора блока:
