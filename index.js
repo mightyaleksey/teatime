@@ -28,8 +28,6 @@ function appendTech(filePath) {
             return;
         }
 
-        console.log(filePath);
-
         return vowFs.write(filePath, '');
     };
 }
