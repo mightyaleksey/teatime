@@ -17,6 +17,7 @@ program
     .version(pkg.version)
     .option('-b, --bemhtml', 'add bemhtml file')
     .option('-c, --css', 'add css file')
+    .option('-d, --deps', 'add deps file')
     .option('-j, --js', 'add js file')
     .parse(process.argv);
 
@@ -24,8 +25,11 @@ if (program.args.length === 0) {
     program.help();
 }
 
-var bem = require('../index');
+var make = require('../lib/make');
 
 program.args.forEach(function (arg) {
-    bem.make(arg, program.bemhtml, program.css, program.js).catch(bem.log);
+    make(arg, program.bemhtml, program.css, program.deps, program.js)
+        .catch(function (err) {
+            console.log(err.stack || err);
+        });
 });

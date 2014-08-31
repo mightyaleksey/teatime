@@ -20,6 +20,9 @@ if (program.args.length !== 2) {
     program.help();
 }
 
-var bem = require('../index');
+var move = require('../lib/move');
 
-bem.rename(program.args[0], program.args[1]).catch(bem.log);
+move(program.args[0], program.args[1])
+    .catch(function (err) {
+        console.log(err.stack || err);
+    });
