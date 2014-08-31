@@ -1,5 +1,5 @@
 {
-  "name": "bem-help",
+  "name": "teatime",
   "version": "0.2.0",
   "description": "Инструмент для работы с файловой системой по БЕМ методологии.",
   "bin": {
@@ -12,10 +12,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/sullenor/bem-help.git"
+    "url": "git://github.com/sullenor/teatime.git"
   },
   "keywords": [
-    "bem"
+    "bem",
+    "cli"
   ],
   "author": {
     "name": "Alexey Litvinov",
@@ -23,9 +24,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sullenor/bem-help/issues"
+    "url": "https://github.com/sullenor/teatime/issues"
   },
-  "homepage": "https://github.com/sullenor/bem-help",
+  "homepage": "https://github.com/sullenor/teatime",
   "dependencies": {
     "commander": "^2.3.0",
     "vow": "^0.4.5",
