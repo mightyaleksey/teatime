@@ -3,8 +3,8 @@
   "version": "0.2.0",
   "description": "Инструмент для работы с файловой системой по БЕМ методологии.",
   "bin": {
-    "mkbem": "./bin/make.js",
-    "mvbem": "./bin/rename.js"
+    "mkbem": "./bin/mkbem.js",
+    "mvbem": "./bin/mvbem.js"
   },
   "main": "index.js",
   "scripts": {
