@@ -1,20 +1,20 @@
-describe('utils', function () {
+describe('core', function () {
     'use strict';
 
+    var core = require('../lib/core');
     var expect = require('must');
-    var utils = require('../lib/utils');
+    var path = require('path');
+    var target;
 
     describe('parsePath()', function () {
         describe('корректно парсит строку типа', function () {
-            var target;
-
             describe('блок', function () {
                 before(function () {
-                    target = utils.parsePath('a');
+                    target = core.parsePath('a');
                 });
 
-                it('имеет поля bem равное block', function () {
-                    expect(target.bem).to.be('block');
+                it('имеет поля type равное block', function () {
+                    expect(target.type).to.be('block');
                 });
 
                 it('имеет поле block', function () {
@@ -36,11 +36,11 @@ describe('utils', function () {
 
             describe('модификатор', function () {
                 before(function () {
-                    target = utils.parsePath('a_m');
+                    target = core.parsePath('a_m');
                 });
 
-                it('имеет поля bem равное mod', function () {
-                    expect(target.bem).to.be('mod');
+                it('имеет поля type равное mod', function () {
+                    expect(target.type).to.be('mod');
                 });
 
                 it('имеет поле block', function () {
@@ -62,11 +62,11 @@ describe('utils', function () {
 
             describe('модификатор с некоторым значением', function () {
                 before(function () {
-                    target = utils.parsePath('a_m_v');
+                    target = core.parsePath('a_m_v');
                 });
 
-                it('имеет поля bem равное mod', function () {
-                    expect(target.bem).to.be('mod');
+                it('имеет поля type равное mod', function () {
+                    expect(target.type).to.be('mod');
                 });
 
                 it('имеет поле block', function () {
@@ -88,11 +88,11 @@ describe('utils', function () {
 
             describe('элемент', function () {
                 before(function () {
-                    target = utils.parsePath('a__b');
+                    target = core.parsePath('a__b');
                 });
 
-                it('имеет поля bem равное elem', function () {
-                    expect(target.bem).to.be('elem');
+                it('имеет поля type равное elem', function () {
+                    expect(target.type).to.be('elem');
                 });
 
                 it('имеет поле block', function () {
@@ -114,11 +114,11 @@ describe('utils', function () {
 
             describe('модификатор элемента', function () {
                 before(function () {
-                    target = utils.parsePath('a__e_m');
+                    target = core.parsePath('a__e_m');
                 });
 
-                it('имеет поля bem равное elemmod', function () {
-                    expect(target.bem).to.be('elemmod');
+                it('имеет поля type равное elemmod', function () {
+                    expect(target.type).to.be('elemmod');
                 });
 
                 it('имеет поле block', function () {
@@ -140,11 +140,11 @@ describe('utils', function () {
 
             describe('модификатор элемента с некоторым значением', function () {
                 before(function () {
-                    target = utils.parsePath('a__e_m_v');
+                    target = core.parsePath('a__e_m_v');
                 });
 
-                it('имеет поля bem равное elemmod', function () {
-                    expect(target.bem).to.be('elemmod');
+                it('имеет поля type равное elemmod', function () {
+                    expect(target.type).to.be('elemmod');
                 });
 
                 it('имеет поле block', function () {
@@ -168,11 +168,59 @@ describe('utils', function () {
         describe('бросит исключение для неизвестного типа', function () {
             it('SyntaxError', function () {
                 try {
-                    utils.parsePath('_a');
+                    core.parsePath('_a');
                 } catch(e) {
                     expect(e.toString()).to.be.equal('SyntaxError: Unknown type of argument: "_a"');
                 }
             });
+        });
+    });
+
+    describe('resolveName()', function () {
+        it('корректно резолвит имя для блока', function () {
+            var name = 'a';
+            expect(core.resolveName(core.parsePath(name)))
+                .to.be(name);
+        });
+
+        it('корректно резолвит имя для модификатора', function () {
+            var name = 'a_m';
+            expect(core.resolveName(core.parsePath(name)))
+                .to.be(name);
+        });
+
+        it('корректно резолвит имя для элемента', function () {
+            var name = 'a__e';
+            expect(core.resolveName(core.parsePath(name)))
+                .to.be(name);
+        });
+
+        it('корректно резолвит имя для элемента модификатора', function () {
+            var name = 'a__e_m';
+            expect(core.resolveName(core.parsePath(name)))
+                .to.be(name);
+        });
+    });
+
+    describe('resolvePath()', function () {
+        it('корректно резолвит путь для блока', function () {
+            expect(core.resolvePath(core.parsePath('a')))
+                .to.be(path.resolve('a'));
+        });
+
+        it('корректно резолвит путь для модификатора', function () {
+            expect(core.resolvePath(core.parsePath('a_m_v')))
+                .to.be(path.resolve('a', '_m'));
+        });
+
+        it('корректно резолвит путь для элемента', function () {
+            expect(core.resolvePath(core.parsePath('a__e')))
+                .to.be(path.resolve('a', '__e'));
+        });
+
+        it('корректно резолвит путь для элемента модификатора', function () {
+            expect(core.resolvePath(core.parsePath('a__e_m_v')))
+                .to.be(path.resolve('a', '__e', '_m'));
         });
     });
 });

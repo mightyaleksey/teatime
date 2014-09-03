@@ -21,7 +21,7 @@ if (program.args.length !== 2) {
 
 var move = require('../lib/move');
 
-move(program.args[0], program.args[1])
+move(program.args[0], program.args[1], true)
     .catch(function (err) {
         console.log(err.stack || err);
     });
