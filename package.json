@@ -1,6 +1,6 @@
 {
   "name": "teatime",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Инструмент для работы с файловой системой по БЕМ методологии.",
   "bin": {
     "mkbem": "./bin/mkbem.js",
