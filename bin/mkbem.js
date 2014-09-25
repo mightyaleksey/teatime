@@ -4,15 +4,6 @@
 var program = require('commander');
 var pkg = require('../package.json');
 
-program.on('--help', function () {
-    console.log('  Examples:');
-    console.log('');
-    console.log('    mkbem -bcj block');
-    console.log('    mkbem -j block_mod_name');
-    console.log('    mkbem -c block__elem');
-    console.log('    mkbem -c block__elem_mod_name');
-});
-
 program
     .version(pkg.version)
     .option('-b, --bemhtml', 'add bemhtml file')
@@ -30,6 +21,6 @@ var make = require('../lib/make');
 program.args.forEach(function (arg) {
     make(arg, program.bemhtml, program.css, program.deps, program.js)
         .catch(function (err) {
-            console.log(err.stack || err);
+            console.error(err.stack || err);
         });
 });

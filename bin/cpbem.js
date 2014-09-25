@@ -12,9 +12,9 @@ if (program.args.length !== 2) {
     program.help();
 }
 
-var move = require('../lib/move');
+var copy = require('../lib/copy');
 
-move(program.args[0], program.args[1])
+copy(program.args[0], program.args[1])
     .catch(function (err) {
-        console.log(err.stack || err);
+        console.error(err.stack || err);
     });
