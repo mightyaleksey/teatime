@@ -7,7 +7,6 @@
     "mkbem": "./bin/mkbem.js",
     "mvbem": "./bin/mvbem.js"
   },
-  "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha --reporter nyan --ui bdd test"
   },
