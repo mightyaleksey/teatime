@@ -4,13 +4,6 @@
 var program = require('commander');
 var pkg = require('../package.json');
 
-program.on('--help', function () {
-    console.log('  Examples:');
-    console.log('');
-    console.log('    mvbem block1 block2');
-    console.log('    mvbem block1__elem1 block2__elem2');
-});
-
 program
     .version(pkg.version)
     .parse(process.argv);
