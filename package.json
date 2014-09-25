@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "description": "Инструмент для работы с файловой системой по БЕМ методологии.",
   "bin": {
+    "cpbem": "./bin/cpbem.js",
     "mkbem": "./bin/mkbem.js",
     "mvbem": "./bin/mvbem.js"
   },
